@@ -1,23 +1,50 @@
-import './ProjectCard.css';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
+import './ProjectCard.css';
+import { BsGithub } from "react-icons/bs";
+import { BsLink45Deg } from "react-icons/bs";
 // import Container from 'react-bootstrap/Container';
 // import Nav from 'react-bootstrap/Nav';
 
-function ProjectCard() {
+function ProjectCard(props) {
+    const {
+        title,
+        body,
+        links
+    } = props;
     return (
         <section>
-            <Card border="secondary" style={{ width: '18rem' }}>
-                <Card.Header>Project 1</Card.Header>
+            <Card>
                 <Card.Body>
-                    {/* <Card.Title>Secondary Card Title</Card.Title> */}
+                    <Card.Title className="text-center">{title}</Card.Title>
                     <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk
-                        of the card's content.
+                        {body}
                     </Card.Text>
                 </Card.Body>
+                <Card.Footer className="icon-alignment">
+                    {links.map((link, i) => (
+                        <a  href={link.href}
+                        key={i}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={link.href}>
+                        {link.icon === "GitHub"? <BsGithub /> : <BsLink45Deg />}
+                        </a>
+                    ))}
+                </Card.Footer>
             </Card>
         </section>
     );
 }
+
+ProjectCard.propTypes = {
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+    links: PropTypes.arrayOf(PropTypes.shape({
+        href: PropTypes.string.isRequired,
+        icon: PropTypes.string.isRequired,
+    })),
+};
 
 export default ProjectCard;
