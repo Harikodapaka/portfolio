@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Header from './components/Header/Header';
 import PersonalDetails from './components/PersonalDetails/PersonalDetails';
 import Projects from './components/Projects/Projects';
+import Footer from './components/Footer/Footer';
+import ReachoutForm from './components/ReachoutForm/ReachoutForm';
 
 function App() {
   return (
@@ -19,6 +21,13 @@ function App() {
         <Row>
           <Projects />
         </Row>
+        <Row>
+          <ReachoutForm/>
+        </Row>
+        <Row>
+          <Footer/>
+        </Row>
+        
       </Container>
     </div>
   );
