@@ -5,8 +5,8 @@ import './PersonalDetails.css';
 
 function PersonalDetails() {
     return (
-        <section className="section-padding full-height bg-info text-center text-white" id="intro">
-            <div className="position-absolute top-50 start-50 translate-middle">
+        <section className="section-padding  bg-info text-center text-white mt-4 p-8" id="intro">
+            <div >
                 Hello,
                 <div>
                     I'm Archit, a Full Stack Web Developer based in Waterloo, Canada.
@@ -19,5 +19,4 @@ function PersonalDetails() {
         </section>
     );
 }
-
 export default PersonalDetails;

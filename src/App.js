@@ -10,8 +10,8 @@ import ReachoutForm from './components/ReachoutForm/ReachoutForm';
 
 function App() {
   return (
-    <div className="App">
-      <Container fluid>
+    <div className="App main-banner">
+      <Container fluid className = "mainContainer">
         <Row>
           <Header />
         </Row>

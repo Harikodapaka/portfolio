@@ -43,7 +43,7 @@ const cardDetails = [{
 }]
 function Projects() {
     return (
-        <section className="section-padding bg-warning" id="projects">
+        <section className="section-padding bg-warning p-4 mt-2" id="projects">
             <Container fluid="md">
                 <h1>Projects</h1>
                 <Row className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">

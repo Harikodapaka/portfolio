@@ -5,7 +5,7 @@ function ReachoutForm() {
     return (
         <>
             
-                <div className="p-4  d-flex justify-content-center">
+                <div className="p-4  d-flex justify-content-center bg-secondary mt-2">
                     <div className="col-2 bg-info p-4 rounded">
                         <Form>
                             <Form.Group className="mb-3" controlId="formBasicPassword">
