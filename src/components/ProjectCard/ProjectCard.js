@@ -14,15 +14,14 @@ function ProjectCard(props) {
         links
     } = props;
     return (
-        <section>
-            <Card>
+            <Card className="h-100">
                 <Card.Body>
                     <Card.Title className="text-center">{title}</Card.Title>
                     <Card.Text>
                         {body}
                     </Card.Text>
                 </Card.Body>
-                <Card.Footer className="icon-alignment">
+                <Card.Footer className="icon-alignment fs-4">
                     {links.map((link, i) => (
                         <a  href={link.href}
                         key={i}
@@ -34,7 +33,6 @@ function ProjectCard(props) {
                     ))}
                 </Card.Footer>
             </Card>
-        </section>
     );
 }
 

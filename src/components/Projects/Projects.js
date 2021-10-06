@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import { BsGithub } from "react-icons/bs";
+import { Col } from 'react-bootstrap';
 
 const cardDetails = [{
     title: "Project 1",
@@ -23,7 +24,7 @@ const cardDetails = [{
 },
 {
     title: "Project 1",
-    body: "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    body: "Some quick example text to build on the card.",
     links: [{
         href: "https://getbootstrap.com/docs/5.1/components/card/",
         icon: "GitHub",
@@ -45,15 +46,15 @@ function Projects() {
         <section className="section-padding bg-warning" id="projects">
             <Container fluid="md">
                 <h1>Projects</h1>
-                <Row>
+                <Row className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                     {cardDetails.map((card, i) => (
-                        <div className="col-lg-4 col-md-6 col-sm-6 mb-2" key={i}>
-                            <ProjectCard title={card.title} body={card.body} links={card.links}/>
-                        </div>
+                    <Col key={i}>
+                        <ProjectCard title={card.title} body={card.body} links={card.links}/>
+                    </Col>
                     ))}
                 </Row>
                 <Row>
-                    <Button className="col-md-3 mx-auto"><span className="m-2">More on</span> <BsGithub /></Button>
+                    <Button className="col-md-3 mx-auto fs-4"><span className="m-2">More on</span> <BsGithub /></Button>
                 </Row>
             </Container>
         </section>
