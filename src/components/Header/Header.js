@@ -13,22 +13,40 @@ function Header() {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
                         <Nav.Link href="#"
-                        onClick={() => scroller.scrollTo('intro', {
-                            smooth: true,
-                            spyOn: true,
-                            duration: 400,
-                        })}
+                            onClick={() => scroller.scrollTo('intro', {
+                                smooth: true,
+                                spyOn: true,
+                                duration: 400,
+                            })}
                         >
                             Intro
                         </Nav.Link>
                         <Nav.Link href="#"
-                        onClick={() => scroller.scrollTo('projects', {
-                            smooth: true,
-                            spyOn: true,
-                            duration: 400,
-                        })}
+                            onClick={() => scroller.scrollTo('projects', {
+                                smooth: true,
+                                spyOn: true,
+                                duration: 400,
+                            })}
                         >
                             Projects
+                        </Nav.Link>
+                        <Nav.Link href="#"
+                            onClick={() => scroller.scrollTo('skills', {
+                                smooth: true,
+                                spyOn: true,
+                                duration: 400,
+                            })}
+                        >
+                            Skills
+                        </Nav.Link>
+                        <Nav.Link href="#"
+                            onClick={() => scroller.scrollTo('reachout', {
+                                smooth: true,
+                                spyOn: true,
+                                duration: 400,
+                            })}
+                        >
+                            Contact
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

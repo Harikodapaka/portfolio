@@ -5,7 +5,7 @@ import './PersonalDetails.css';
 
 function PersonalDetails() {
     return (
-        <section className="section-padding  bg-info text-center text-white mt-4 p-8" id="intro">
+        <section className="section-padding  bg-info text-center text-white mt-4 p-8">
             <div >
                 Hello,
                 <div>

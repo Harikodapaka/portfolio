@@ -43,7 +43,7 @@ const cardDetails = [{
 }]
 function Projects() {
     return (
-        <section className="section-padding bg-warning p-4 mt-2" id="projects">
+        <section className="section-padding bg-warning p-4 mt-2">
             <Container fluid="md">
                 <h1>Projects</h1>
                 <Row className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -53,7 +53,7 @@ function Projects() {
                     </Col>
                     ))}
                 </Row>
-                <Row>
+                <Row className="mt-5">
                     <Button className="col-md-3 mx-auto fs-4"><span className="m-2">More on</span> <BsGithub /></Button>
                 </Row>
             </Container>
