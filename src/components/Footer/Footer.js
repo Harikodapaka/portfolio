@@ -8,7 +8,7 @@ function Footer() {
     return (
         <>
             <Navbar bg="dark" variant="dark" className="mt-2">
-                <Container>
+                <Container className="justify-content-center">
                     <Navbar.Brand href="#home">
                         <img
                             alt=""
