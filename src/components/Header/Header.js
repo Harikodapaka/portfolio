@@ -3,8 +3,19 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import { scroller } from 'react-scroll';
+import React, { useState } from 'react';
 
 function Header() {
+    const [activeLink, setactiveLink] = useState('intro');
+    function scrollTo(scrollTo) {
+        setactiveLink(scrollTo);
+        scroller.scrollTo(scrollTo, {
+            activeLink: "active-link",
+            smooth: true,
+            spyOn: true,
+            duration: 400,
+        });
+    }
     return (
         <Navbar bg="dark" variant="dark" expand="md" fixed="top">
             <Container>
@@ -12,41 +23,21 @@ function Header() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
-                        <Nav.Link href="#"
-                            onClick={() => scroller.scrollTo('intro', {
-                                smooth: true,
-                                spyOn: true,
-                                duration: 400,
-                            })}
-                        >
+                    <Nav.Link href="#" active={activeLink === 'intro' ? true : false}
+                            onClick={() => {scrollTo('intro');}}>
                             Intro
                         </Nav.Link>
-                        <Nav.Link href="#"
-                            onClick={() => scroller.scrollTo('projects', {
-                                smooth: true,
-                                spyOn: true,
-                                duration: 400,
-                            })}
-                        >
+                        <Nav.Link href="#" active={activeLink === 'projects' ? true : false}
+                            onClick={() => {scrollTo('projects');}}>
                             Projects
                         </Nav.Link>
-                        <Nav.Link href="#"
-                            onClick={() => scroller.scrollTo('skills', {
-                                smooth: true,
-                                spyOn: true,
-                                duration: 400,
-                            })}
-                        >
+                        <Nav.Link href="#" active={activeLink === 'skills' ? true : false}
+                            onClick={() => {scrollTo('skills');}}>
                             Skills
                         </Nav.Link>
-                        <Nav.Link href="#"
-                            onClick={() => scroller.scrollTo('reachout', {
-                                smooth: true,
-                                spyOn: true,
-                                duration: 400,
-                            })}
-                        >
-                            Contact
+                        <Nav.Link href="#" active={activeLink === 'reachout' ? true : false}
+                            onClick={() => {scrollTo('reachout');}}>
+                            Reachout
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

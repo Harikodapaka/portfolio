@@ -2,3 +2,63 @@
     width: 3em;
     height: 3em;
 }
+.bg-html {
+    background-color: #dc4922 !important;
+}
+.bg-css {
+    background-color: #136EB0 !important;
+}
+.bg-bootstrap {
+    background-color: #533B77 !important;
+}
+.bg-js {
+    background-color: #EFD81A !important;
+}
+.bg-angular {
+    background-color: #DA3135 !important;
+}
+.bg-react {
+    background-color: #00D1F6 !important;
+}
+.bg-dnet {
+    background-color: #1985C9 !important;
+}
+.bg-jquery {
+    background-color: #0964A7 !important;
+}
+.bg-mongo {
+    background-color: #4EA53F !important;
+}
+.bg-sass {
+    background-color: #C66394 !important;
+}
+.bg-node {
+    background-color: #56A143 !important;
+}
+.bg-java {
+    background-color: #0986C1 !important;
+}
+.bg-sql {
+    background-color: #D93628 !important;
+}
+.bg-docker {
+    background-color: #27B2E5 !important;
+}
+.bg-aws {
+    background-color: #F79400 !important;
+}
+.bg-git {
+    background-color: #E94F31 !important;
+}
+.bg-azure {
+    background-color: #226EB4 !important;
+}
+.bg-docker {
+    background-color: #27B2E5 !important;
+}
+.bg-sys-design {
+    background-color: #6F42C1 !important;
+}
+.bg-design-pattern {
+    background-color: #19A279 !important;
+}
