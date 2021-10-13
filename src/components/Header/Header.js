@@ -19,7 +19,7 @@ function Header() {
     return (
         <Navbar bg="dark" variant="dark" expand="md" fixed="top">
             <Container>
-                <Navbar.Brand href="#home">Header Component</Navbar.Brand>
+                <Navbar.Brand href="#">Hari Kodapaka</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">

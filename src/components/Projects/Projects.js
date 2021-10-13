@@ -43,10 +43,10 @@ const cardDetails = [{
 }]
 function Projects() {
     return (
-        <section className="section-padding bg-warning p-4 mt-2">
+        <section className="section-padding">
             <Container fluid="md">
-                <h1>Projects</h1>
-                <Row className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <h1 className="text-white">Projects I worked</h1>
+                <Row className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-1">
                     {cardDetails.map((card, i) => (
                     <Col key={i}>
                         <ProjectCard title={card.title} body={card.body} links={card.links}/>

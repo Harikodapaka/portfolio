@@ -16,14 +16,14 @@ function App() {
         <Row>
           <Header />
         </Row>
-        <Row id="intro">
+        <Row id="intro" className="align-items-center bg-intro full-height">
           <PersonalDetails />
         </Row>
-        <Row id="projects">
+        <Row id="projects"  className="bg-projects align-items-center full-height">
           <Projects />
         </Row>
-        <Row id="skills">
-         <Skills />
+        <Row id="skills" className="bg-skills align-items-center full-height text-dark">
+          <Skills />
         </Row>
         <Row id="reachout">
           <ReachoutForm/>

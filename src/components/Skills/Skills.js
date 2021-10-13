@@ -1,9 +1,9 @@
 import './Skills.css';
-import Carousel from 'react-bootstrap/Carousel';
-import ProgressBar from 'react-bootstrap/ProgressBar';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Carousel } from 'react-bootstrap';
+import { ProgressBar } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import GetImage from './ImageHelper';
 
 function Skills() {
@@ -36,14 +36,11 @@ function Skills() {
         ]
     };
     return (
-        <section className="section-padding bg-white text-dark">
+        <section className="section-padding">
             <Container fluid="md">
-                <h1>
-                    Technologies I know
-                </h1>
-                <Carousel variant="dark" controls={false} indicators={true} interval={null}>
-                    <Carousel.Item className="pt-3 p-5" style={{ minHeight: "25em" }}>
-                        <h3 className="text-center">FrontEnd Skills</h3>
+                <h1 className="text-white"> Technologies I know </h1>
+                <Carousel className="mt-3 card" variant="dark" controls={false} indicators={true} interval={2000} pause={false}>
+                    <Carousel.Item className="mt-3 p-5" style={{ minHeight: "25em" }}>
                         <Row className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 align-items-center">
                             {skills["front-end-skills"].map((skill, i) => (
                                 <Col key={i}>
@@ -56,9 +53,11 @@ function Skills() {
                                 </Col>
                             ))}
                         </Row>
+                        <Carousel.Caption>
+                            <h3>Frontend Skill</h3>
+                        </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item className="pt-3 p-5" style={{ minHeight: "25em" }}>
-                        <h3 className="text-center">BackEnd Skills</h3>
+                    <Carousel.Item className="mt-3 p-5" style={{ minHeight: "25em" }}>
                         <Row className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 align-items-center">
                             {skills["back-end-skills"].map((skill, i) => (
                                 <Col key={i}>
@@ -71,9 +70,11 @@ function Skills() {
                                 </Col>
                             ))}
                         </Row>
+                        <Carousel.Caption>
+                            <h3>Backend Skill</h3>
+                        </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item className="pt-3 p-5" style={{ minHeight: "25em" }}>
-                        <h3 className="text-center">Other Skills</h3>
+                    <Carousel.Item className="mt-3 p-5" style={{ minHeight: "25em" }}>
                         <Row className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 align-items-center">
                             {skills["other-skills"].map((skill, i) => (
                                 <Col key={i}>
@@ -86,6 +87,9 @@ function Skills() {
                                 </Col>
                             ))}
                         </Row>
+                        <Carousel.Caption>
+                            <h3>Other Skill</h3>
+                        </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
             </Container>
