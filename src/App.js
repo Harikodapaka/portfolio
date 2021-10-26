@@ -25,7 +25,7 @@ function App() {
         <Row id="skills" className="bg-skills align-items-center full-height text-dark">
           <Skills />
         </Row>
-        <Row id="reachout">
+        <Row id="reachout" className="bg-reachout p-4 d-flex justify-content-center" >
           <ReachoutForm/>
         </Row>
         <Row>

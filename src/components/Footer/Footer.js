@@ -7,7 +7,7 @@ import logo from '../../logo.svg' ;
 function Footer() {
     return (
         <>
-            <Navbar bg="dark" variant="dark" className="mt-2">
+            <Navbar bg="dark" variant="dark">
                 <Container className="justify-content-center">
                     <Navbar.Brand href="#home">
                         <img
