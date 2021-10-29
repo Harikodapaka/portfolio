@@ -23,7 +23,7 @@ function Header() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
-                    <Nav.Link href="#" active={activeLink === 'intro' ? true : false}
+                        <Nav.Link href="#" active={activeLink === 'intro' ? true : false}
                             onClick={() => {scrollTo('intro');}}>
                             Intro
                         </Nav.Link>
@@ -37,7 +37,7 @@ function Header() {
                         </Nav.Link>
                         <Nav.Link href="#" active={activeLink === 'experience' ? true : false}
                             onClick={() => {scrollTo('experience');}}>
-                            Experience
+                            Experiences
                         </Nav.Link>
                         <Nav.Link href="#" active={activeLink === 'reachout' ? true : false}
                             onClick={() => {scrollTo('reachout');}}>

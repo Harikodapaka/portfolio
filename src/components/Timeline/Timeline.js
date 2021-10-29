@@ -23,7 +23,7 @@ function TimeLine(props) {
                     <VerticalTimelineElement key={i}
                         className="vertical-timeline-element--work"
                         contentStyle={{ background: item.iconBackgroundColor }}
-                        contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
+                        contentArrowStyle={{ borderRight: '7px solid  '+item.contentBackgroundColor }}
                         date={item.date}
                         iconStyle={{ background: item.contentBackgroundColor }}
                         icon={<Icon name={item.iconName} />}
@@ -37,7 +37,7 @@ function TimeLine(props) {
                 ))}
                 <VerticalTimelineElement
                     iconClassName="bg-danger"
-                    icon={<Icon name="FaBaby" />}
+                    icon={<Icon name="FaRegThumbsUp" />}
                 />
             </VerticalTimeline>
         </div>

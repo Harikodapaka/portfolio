@@ -14,7 +14,7 @@ function Skills() {
             { name: "Bootstrap", img: "bootstrap", percent: "90", iconColor: "#533B77" },
             { name: "Angular", img: "angular", percent: "90", iconColor: "#DA3135" },
             { name: "Angular JS", img: "angular", percent: "90", iconColor: "#DA3135" },
-            { name: "React", img: "react", percent: "70", iconColor: "00D1F6" },
+            { name: "React", img: "react", percent: "70", iconColor: "#00D1F6" },
             { name: "JavaScript", img: "js", percent: "80", iconColor: "#EFD81A" },
             { name: "jQuery", img: "jquery", percent: "80", iconColor: "#0964A7" },
             { name: "SASS", img: "sass", percent: "80", iconColor: "#C66394" },
