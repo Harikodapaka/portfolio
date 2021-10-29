@@ -35,6 +35,10 @@ function Header() {
                             onClick={() => {scrollTo('skills');}}>
                             Skills
                         </Nav.Link>
+                        <Nav.Link href="#" active={activeLink === 'experience' ? true : false}
+                            onClick={() => {scrollTo('experience');}}>
+                            Experience
+                        </Nav.Link>
                         <Nav.Link href="#" active={activeLink === 'reachout' ? true : false}
                             onClick={() => {scrollTo('reachout');}}>
                             Reachout
