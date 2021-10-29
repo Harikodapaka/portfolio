@@ -45,9 +45,9 @@ function App() {
           />
         </Row>
         {
-          TIMELINE_DATA.length > 0 &&
+          TIMELINE_DATA &&
           <Row id="experience" className="bg-projects">
-            <TimeLine sectionTitle="Work Experience / Education" timelineData={TIMELINE_DATA} />
+            <TimeLine sectionTitle={TIMELINE_DATA.title} timelineData={TIMELINE_DATA.timeline} />
           </Row>
         }
         <Row id="reachout" className="bg-reachout full-height align-items-center justify-content-center" >
