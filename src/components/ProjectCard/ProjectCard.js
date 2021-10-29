@@ -4,8 +4,6 @@ import Card from 'react-bootstrap/Card';
 import './ProjectCard.css';
 import { BsGithub } from "react-icons/bs";
 import { CgArrowTopRightR } from "react-icons/cg";
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
 
 function ProjectCard(props) {
     const {
@@ -21,7 +19,7 @@ function ProjectCard(props) {
                         {body}
                     </Card.Text>
                 </Card.Body>
-                <Card.Footer className="icon-alignment fs-4">
+                {links && <Card.Footer className="icon-alignment fs-4">
                     {links.map((link, i) => (
                         <a  href={link.href}
                         key={i}
@@ -31,7 +29,7 @@ function ProjectCard(props) {
                         {link.icon === "GitHub"? <BsGithub /> : <CgArrowTopRightR />}
                         </a>
                     ))}
-                </Card.Footer>
+                </Card.Footer>}
             </Card>
     );
 }
