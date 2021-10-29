@@ -8,6 +8,7 @@ import Projects from './components/Projects/Projects';
 import Skills from './components/Skills/Skills';
 import ReachoutForm from './components/ReachoutForm/ReachoutForm';
 import TimeLine from './components/Timeline/Timeline';
+import Footer from './components/Footer/Footer';
 
 function App() {
   let timelinedata = [
@@ -96,8 +97,11 @@ function App() {
           </Row>
         }
         <Row id="reachout" className="bg-reachout full-height align-items-center justify-content-center" >
-          <ReachoutForm technologies={technologies}/>
+          <ReachoutForm />
         </Row>
+        {technologies.length > 0 && <Row className="footer-styles align-self-end">
+          <Footer title="Built With" technologies={technologies} />
+        </Row>}
       </Container>
     </div>
   );
