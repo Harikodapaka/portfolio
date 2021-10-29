@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Button from "@restart/ui/esm/Button";
 import { Form } from "react-bootstrap";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Footer from '../Footer/Footer';
 import './ReachoutForm.css';
 const formIntialState = {
     name: "",
@@ -10,7 +9,6 @@ const formIntialState = {
     message: ""
 }
 function ReachoutForm(props) {
-    const { technologies } = props;
     const [validated, setValidated] = useState(false);
     const [formValues, setFormformValues] = useState(formIntialState);
 
@@ -32,7 +30,7 @@ function ReachoutForm(props) {
     };
     return (
         <>
-            <div className="col-12 col-md-9 col-lg-7 bg-white p-4 rounded text-center align-self-end">
+            <div className="col-12 col-md-9 col-lg-7 bg-white p-4 rounded text-center">
                 <h2> Say Hi! </h2>
                 <h5 className="fst-italic">
                     Thank you for visiting. I hope you liked my portfolio.
@@ -70,9 +68,6 @@ function ReachoutForm(props) {
                     </Button>
                 </Form>
             </div>
-            {technologies.length > 0 && <div className="footer-styles align-self-end">
-                <Footer technologies={technologies}/>
-            </div>}
         </>
     )
 }

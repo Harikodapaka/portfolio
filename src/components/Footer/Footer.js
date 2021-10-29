@@ -11,13 +11,13 @@ const Icon = ({ name }) => {
 }
 
 function Footer(props) {
-    const { technologies } = props;
+    const { title, technologies } = props;
     return (
         <>
             <Navbar bg="dark" variant="dark">
                 <Container className="justify-content-center footer-styles">
                     <Navbar.Brand className="d-flex">
-                        Built with  
+                        {title}  
                         {technologies.map((item, i) => (
                             <div key={i} className="mx-1">
                                 <span>{item.name} </span>
@@ -33,6 +33,7 @@ function Footer(props) {
 }
 
 Footer.propTypes = {
+    title: PropTypes.string.isRequired,
     technologies: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired,
         icon: PropTypes.string.isRequired,
