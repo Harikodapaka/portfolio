@@ -11,7 +11,7 @@ import TimeLine from './components/Timeline/Timeline';
 import Footer from './components/Footer/Footer';
 import {
   HEADER_DATA, TIMELINE_DATA, TECHNOLOGIES,
-  PERSONAL_DETAILS, PROJECTS_DATA
+  PERSONAL_DETAILS, PROJECTS_DATA, SKILLS
 } from './Data';
 
 function App() {
@@ -39,7 +39,10 @@ function App() {
           />
         </Row>
         <Row id="skills" className="bg-skills align-items-center full-height text-dark">
-          <Skills />
+          <Skills 
+            title={SKILLS.title} 
+            skill_catrgories={SKILLS.skill_catrgories}
+          />
         </Row>
         {
           TIMELINE_DATA.length > 0 &&
