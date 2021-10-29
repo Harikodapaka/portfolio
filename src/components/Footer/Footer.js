@@ -37,7 +37,7 @@ Footer.propTypes = {
     technologies: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired,
         icon: PropTypes.string.isRequired,
-        iconColor: PropTypes.string.isRequired,
+        iconColor: PropTypes.string,
         seperator: PropTypes.string
     }))
 };
