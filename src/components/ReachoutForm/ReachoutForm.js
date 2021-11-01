@@ -30,7 +30,7 @@ function ReachoutForm(props) {
     };
     return (
         <>
-            <div className="col-12 col-md-9 col-lg-7 bg-white p-4 rounded text-center">
+            <div className="container-md col-11 bg-white p-4 rounded text-center">
                 <h2> Say Hi! </h2>
                 <h5 className="fst-italic">
                     Thank you for visiting. I hope you liked my portfolio.
