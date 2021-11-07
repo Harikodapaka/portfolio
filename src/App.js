@@ -24,7 +24,6 @@ const TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID;
 
 function App() {
   useEffect(() => {
-    console.log("REACT_APP_GA_TRACKING_ID",TRACKING_ID);
     ReactGA.initialize(TRACKING_ID);
     ReactGA.pageview('/');
 
