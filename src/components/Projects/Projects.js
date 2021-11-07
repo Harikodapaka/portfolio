@@ -1,64 +1,58 @@
 import './Projects.css';
+import PropTypes from 'prop-types';
 import ProjectCard from '../ProjectCard/ProjectCard';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
-import { BsGithub } from "react-icons/bs";
 import { Col } from 'react-bootstrap';
+import * as ReactFaIcons from 'react-icons/fa'
 
-const cardDetails = [{
-    title: "Project 1",
-    body: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-    links: [{
-        href: "https://getbootstrap.com/docs/5.1/components/card/",
-        icon: "GitHub",
-    }],
-},
-{
-    title: "Project 1",
-    body: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-    links: [{
-        href: "https://getbootstrap.com/docs/5.1/components/card/",
-        icon: "GitHub",
-    }],
-},
-{
-    title: "Project 1",
-    body: "Some quick example text to build on the card.",
-    links: [{
-        href: "https://getbootstrap.com/docs/5.1/components/card/",
-        icon: "GitHub",
-    }],
-},
-{
-    title: "Project 1",
-    body: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-    links: [{
-        href: "https://getbootstrap.com/docs/5.1/components/card/",
-        icon: "GitHub",
-    },{
-        href: "https://getbootstrap.com/docs/5.1/components/card/",
-        icon: "Open",
-    }],
-}]
-function Projects() {
+
+const Icon = ({ name }) => {
+    const TagName = ReactFaIcons[name];
+    return !!TagName ? <TagName /> : <p>{name}</p>;
+}
+function Projects(props) {
+    const {
+        title,
+        projects,
+        more_projects_link
+    } = props;
     return (
-        <section className="section-padding bg-warning p-4 mt-2">
+        <section className="section-padding">
             <Container fluid="md">
-                <h1>Projects</h1>
-                <Row className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                    {cardDetails.map((card, i) => (
-                    <Col key={i}>
-                        <ProjectCard title={card.title} body={card.body} links={card.links}/>
-                    </Col>
+                <h1 className="text-white">{title}</h1>
+                <Row className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-1">
+                    {projects && projects.map((project, i) => (
+                        <Col key={i}>
+                            <ProjectCard title={project.title} body={project.body} links={project.links} />
+                        </Col>
                     ))}
                 </Row>
-                <Row className="mt-5">
-                    <Button className="col-md-3 mx-auto fs-4"><span className="m-2">More on</span> <BsGithub /></Button>
-                </Row>
+                {more_projects_link && <Row className="mt-5">
+                    <Button href={more_projects_link.href} target="blank" variant={more_projects_link.variant} className="col-md-3 mx-auto fs-4 ">
+                            <span className="m-2">{more_projects_link.text}</span> <Icon name={more_projects_link.icon} />                
+                    </Button>
+                </Row>}
             </Container>
         </section>
     );
 }
-
+Projects.propTypes = {
+    title: PropTypes.string.isRequired,
+    projects: PropTypes.arrayOf(PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        body: PropTypes.string.isRequired,
+        links: PropTypes.arrayOf(PropTypes.shape({
+            href: PropTypes.string.isRequired,
+            icon: PropTypes.string.isRequired
+        }))
+    })),
+    more_projects_link: PropTypes.shape({
+        text: PropTypes.string.isRequired,
+        icon: PropTypes.string.isRequired,
+        href: PropTypes.string.isRequired,
+        variant: PropTypes.string
+    }),
+};
 export default Projects;

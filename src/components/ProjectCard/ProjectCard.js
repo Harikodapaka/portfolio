@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import './ProjectCard.css';
 import { BsGithub } from "react-icons/bs";
-import { BsLink45Deg } from "react-icons/bs";
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
+import { CgArrowTopRightR } from "react-icons/cg";
 
 function ProjectCard(props) {
     const {
@@ -14,24 +12,24 @@ function ProjectCard(props) {
         links
     } = props;
     return (
-            <Card className="h-100">
+            <Card className="h-100 project-card">
                 <Card.Body>
                     <Card.Title className="text-center">{title}</Card.Title>
                     <Card.Text>
                         {body}
                     </Card.Text>
                 </Card.Body>
-                <Card.Footer className="icon-alignment fs-4">
+                {links && <Card.Footer className="icon-alignment fs-4">
                     {links.map((link, i) => (
                         <a  href={link.href}
                         key={i}
                         target="_blank"
                         rel="noreferrer"
                         aria-label={link.href}>
-                        {link.icon === "GitHub"? <BsGithub /> : <BsLink45Deg />}
+                        {link.icon === "GitHub"? <BsGithub /> : <CgArrowTopRightR />}
                         </a>
                     ))}
-                </Card.Footer>
+                </Card.Footer>}
             </Card>
     );
 }

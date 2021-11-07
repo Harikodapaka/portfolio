@@ -2,11 +2,32 @@
     padding: 4rem 4rem;
 }
 
-.mainContainer {
+/* .mainContainer {
     max-width: 80%;
-}
+} */
 
-.main-banner {
+/* .main-banner {
     background-image: url('./main-bg.jpg');
     background-size: contain;
+} */
+.bg-intro {
+    background-image: url('./assets/BG5.jpg');
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg-projects {
+    background-color: #1C2046;
+}
+.bg-skills {
+    background-color: #457B9E;
+}
+.bg-reachout {
+    background-color: #457B9E;
+}
+.full-height {
+    min-height: 100vh;
 }
