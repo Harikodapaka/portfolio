@@ -14,7 +14,21 @@ import {
   PERSONAL_DETAILS, PROJECTS_DATA, SKILLS
 } from './Data';
 
+
+
+import ReactGA from 'react-ga';
+import { useEffect } from 'react';
+
+
+const TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID;
+
 function App() {
+  useEffect(() => {
+    console.log("REACT_APP_GA_TRACKING_ID",TRACKING_ID);
+    ReactGA.initialize(TRACKING_ID);
+    ReactGA.pageview('/');
+
+  }, [])
   return (
     <div className="App main-banner">
       <Container fluid className="mainContainer">
@@ -39,8 +53,8 @@ function App() {
           />
         </Row>
         <Row id="skills" className="bg-skills align-items-center full-height text-dark">
-          <Skills 
-            title={SKILLS.title} 
+          <Skills
+            title={SKILLS.title}
             skill_catrgories={SKILLS.skill_catrgories}
           />
         </Row>
