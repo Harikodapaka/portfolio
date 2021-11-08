@@ -22,7 +22,7 @@ function Footer(props) {
                             <div key={i} className="mx-1">
                                 <span>{item.name} </span>
                                 <span style={{iconColor: item.color}}>{<Icon name={item.icon}/>}</span>
-                                <span> {item.seperator}</span>
+                                <span> {item.separator}</span>
                             </div>
                         ))}
                     </Navbar.Brand>
@@ -38,7 +38,7 @@ Footer.propTypes = {
         name: PropTypes.string.isRequired,
         icon: PropTypes.string.isRequired,
         iconColor: PropTypes.string,
-        seperator: PropTypes.string
+        separator: PropTypes.string
     }))
 };
 export default Footer;

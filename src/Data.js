@@ -72,12 +72,12 @@ export const TECHNOLOGIES = [{
     name: "React",
     icon: "FaReact",
     iconColor: "#00D1F6",
-    seperator: "|"
+    separator: "|"
 },
 {
     name: "Bootstrap 5",
     icon: "FaBootstrap",
-    seperator: "|"
+    separator: "|"
 },
 {
     name: "Github Pages",
