@@ -1,7 +1,6 @@
 import './App.css';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col'
 import Header from './components/Header/Header';
 import PersonalDetails from './components/PersonalDetails/PersonalDetails';
 import Projects from './components/Projects/Projects';
@@ -9,39 +8,55 @@ import Skills from './components/Skills/Skills';
 import ReachoutForm from './components/ReachoutForm/ReachoutForm';
 import TimeLine from './components/Timeline/Timeline';
 import Footer from './components/Footer/Footer';
+
 import {
-  HEADER_DATA, TIMELINE_DATA, TECHNOLOGIES,
-  PERSONAL_DETAILS, PROJECTS_DATA, SKILLS
+  TIMELINE_DATA, PROJECTS_DATA, SKILLS
 } from './Data';
 
-
-
+import GET_ENTRIES from './ContentfulClient';
 import ReactGA from 'react-ga';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import React from 'react';
 
 
 const TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID;
 
 function App() {
+  const [HeaderData, setHeaderData] = useState({});
+  const [FooterData, setFooterData] = useState({});
+  const [personalDetails, setPersonalDetails] = useState({});
+
   useEffect(() => {
+    // initializing Google Analytics
     ReactGA.initialize(TRACKING_ID);
     ReactGA.pageview('/');
+    // Fetching contentful data
+    const fetchServerData = async () => {
+      const headerResponse = await GET_ENTRIES('headerData');
+      const footerResponse = await GET_ENTRIES('footerData');
+      const personalDetailsResponse = await GET_ENTRIES('personalDetails');
+      setHeaderData(headerResponse[0].fields);
+      setFooterData(footerResponse[0].fields);
+      setPersonalDetails(personalDetailsResponse[0].fields);
+      // console.log(personalDetailsResponse[0].fields);
+    }
+    fetchServerData();
+  }, []);
 
-  }, [])
   return (
     <div className="App main-banner">
       <Container fluid className="mainContainer">
         <Row>
           <Header
-            varient={HEADER_DATA.varient}
-            title={HEADER_DATA.title}
-            links={HEADER_DATA.links}
+            varient={HeaderData?.varient}
+            title={HeaderData?.title}
+            links={HeaderData?.links}
           />
         </Row>
         <Row id="intro" className="align-items-center bg-intro full-height">
           <PersonalDetails
-            title={PERSONAL_DETAILS.title}
-            subtitle={PERSONAL_DETAILS.subtitle}
+            title={personalDetails.title}
+            subtitle={personalDetails?.subtitle?.content[0]?.content[0]?.value}
           />
         </Row>
         <Row id="projects" className="bg-projects align-items-center full-height">
@@ -66,8 +81,8 @@ function App() {
         <Row id="reachout" className="bg-reachout full-height align-items-center justify-content-center" >
           <ReachoutForm />
         </Row>
-        {TECHNOLOGIES.length > 0 && <Row>
-          <Footer title="Built With" technologies={TECHNOLOGIES} />
+        {FooterData && <Row>
+          <Footer title="Built With" technologies={FooterData?.technologies} />
         </Row>}
       </Container>
     </div>

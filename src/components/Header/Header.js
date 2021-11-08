@@ -27,9 +27,9 @@ function Header(props) {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
                         {links.map((link, i) =>
-                            <Nav.Link key={i} href="#" active={activeLink === link.scrollTo ? true : false}
-                                onClick={() => { scrollTo(link.scrollTo); }}>
-                                {link.name}
+                            <Nav.Link key={i} href="#" active={activeLink === link.fields.scrollTo ? true : false}
+                                onClick={() => { scrollTo(link.fields.scrollTo); }}>
+                                {link.fields.name}
                             </Nav.Link>
                         )}
                     </Nav>
@@ -41,9 +41,11 @@ function Header(props) {
 Header.propTypes = {
     varient: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    links: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        scrollTo: PropTypes.string.isRequired
-    }))
+    links: PropTypes.arrayOf(PropTypes.shape({}))
 };
+Header.defaultProps = {
+    varient: "",
+    title: "",
+    links: []
+}
 export default Header;

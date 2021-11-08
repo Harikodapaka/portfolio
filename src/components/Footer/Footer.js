@@ -20,9 +20,9 @@ function Footer(props) {
                         {title}  
                         {technologies.map((item, i) => (
                             <div key={i} className="mx-1">
-                                <span>{item.name} </span>
-                                <span style={{iconColor: item.color}}>{<Icon name={item.icon}/>}</span>
-                                <span> {item.separator}</span>
+                                <span>{item.fields.name} </span>
+                                <span style={{color: item.fields.iconColor}}>{<Icon name={item.fields.icon}/>}</span>
+                                <span> {item.fields.separator}</span>
                             </div>
                         ))}
                     </Navbar.Brand>
@@ -34,11 +34,10 @@ function Footer(props) {
 
 Footer.propTypes = {
     title: PropTypes.string.isRequired,
-    technologies: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        icon: PropTypes.string.isRequired,
-        iconColor: PropTypes.string,
-        separator: PropTypes.string
-    }))
+    technologies: PropTypes.arrayOf(PropTypes.shape())
 };
+Footer.defaultProps = {
+    title: "",
+    technologies: []
+}
 export default Footer;

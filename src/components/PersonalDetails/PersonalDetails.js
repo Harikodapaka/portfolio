@@ -24,4 +24,8 @@ PersonalDetails.propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired
 };
+PersonalDetails.defaultProps = {
+    title: "",
+    subtitle: ""
+};
 export default PersonalDetails;
