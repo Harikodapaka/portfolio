@@ -25,13 +25,13 @@ function Projects(props) {
                 <Row className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-1">
                     {projects && projects.map((project, i) => (
                         <Col key={i}>
-                            <ProjectCard title={project.title} body={project.body} links={project.links} />
+                            <ProjectCard title={project?.fields?.title} body={project?.fields?.body} links={project?.fields?.links} />
                         </Col>
                     ))}
                 </Row>
                 {more_projects_link && <Row className="mt-5">
-                    <Button href={more_projects_link.href} target="blank" variant={more_projects_link.variant} className="col-md-3 mx-auto fs-4 ">
-                            <span className="m-2">{more_projects_link.text}</span> <Icon name={more_projects_link.icon} />                
+                    <Button href={more_projects_link?.fields?.href} target="blank" variant={more_projects_link?.fields?.variant} className="col-md-3 mx-auto fs-4 ">
+                            <span className="m-2">{more_projects_link?.fields?.text}</span> <Icon name={more_projects_link?.fields?.icon} />                
                     </Button>
                 </Row>}
             </Container>
@@ -40,19 +40,20 @@ function Projects(props) {
 }
 Projects.propTypes = {
     title: PropTypes.string.isRequired,
-    projects: PropTypes.arrayOf(PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        body: PropTypes.string.isRequired,
-        links: PropTypes.arrayOf(PropTypes.shape({
-            href: PropTypes.string.isRequired,
-            icon: PropTypes.string.isRequired
-        }))
-    })),
+    projects: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
     more_projects_link: PropTypes.shape({
-        text: PropTypes.string.isRequired,
-        icon: PropTypes.string.isRequired,
-        href: PropTypes.string.isRequired,
-        variant: PropTypes.string
-    }),
+        fields: PropTypes.shape({
+            text: PropTypes.string,
+            icon: PropTypes.string,
+            href: PropTypes.string,
+            variant: PropTypes.string
+        })
+    }).isRequired,
+};
+
+Projects.defaultProps = {
+    title: "",
+    projects: [],
+    more_projects_link: {}
 };
 export default Projects;

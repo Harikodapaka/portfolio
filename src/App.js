@@ -8,23 +8,22 @@ import Skills from './components/Skills/Skills';
 import ReachoutForm from './components/ReachoutForm/ReachoutForm';
 import TimeLine from './components/Timeline/Timeline';
 import Footer from './components/Footer/Footer';
-
-import {
-  TIMELINE_DATA, PROJECTS_DATA, SKILLS
-} from './Data';
-
 import GET_ENTRIES from './ContentfulClient';
 import ReactGA from 'react-ga';
-import { useEffect, useState } from 'react';
 import React from 'react';
+import { useEffect, useState } from 'react';
 
 
 const TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID;
 
 function App() {
+  const [loading, setLoading] = useState(true);
   const [HeaderData, setHeaderData] = useState({});
-  const [FooterData, setFooterData] = useState({});
   const [personalDetails, setPersonalDetails] = useState({});
+  const [projectsData, setProjectsData] = useState({});
+  const [skillsData, setSkillsData] = useState({});
+  const [timelineData, setTimelineData] = useState({});
+  const [FooterData, setFooterData] = useState({});
 
   useEffect(() => {
     // initializing Google Analytics
@@ -33,16 +32,25 @@ function App() {
     // Fetching contentful data
     const fetchServerData = async () => {
       const headerResponse = await GET_ENTRIES('headerData');
-      const footerResponse = await GET_ENTRIES('footerData');
       const personalDetailsResponse = await GET_ENTRIES('personalDetails');
+      const projectsResponse = await GET_ENTRIES('projectsData');
+      const skillsResponse = await GET_ENTRIES('skillsData');
+      const timlineResponse = await GET_ENTRIES('timelineData');
+      const footerResponse = await GET_ENTRIES('footerData');
       setHeaderData(headerResponse[0].fields);
-      setFooterData(footerResponse[0].fields);
       setPersonalDetails(personalDetailsResponse[0].fields);
-      // console.log(personalDetailsResponse[0].fields);
+      setProjectsData(projectsResponse[0].fields);
+      setSkillsData(skillsResponse[0].fields);
+      setTimelineData(timlineResponse[0].fields);
+      setFooterData(footerResponse[0].fields);
+
+      setLoading(false);
     }
     fetchServerData();
   }, []);
-
+  if (loading) {
+    return null; // render null when app is not ready
+  }
   return (
     <div className="App main-banner">
       <Container fluid className="mainContainer">
@@ -61,29 +69,30 @@ function App() {
         </Row>
         <Row id="projects" className="bg-projects align-items-center full-height">
           <Projects
-            title={PROJECTS_DATA.title}
-            projects={PROJECTS_DATA.projects}
-            more_projects_link={PROJECTS_DATA.more_projects_link}
+            title={projectsData?.title}
+            projects={projectsData.projects}
+            more_projects_link={projectsData.more_projects_link}
           />
         </Row>
         <Row id="skills" className="bg-skills align-items-center full-height text-dark">
           <Skills
-            title={SKILLS.title}
-            skill_catrgories={SKILLS.skill_catrgories}
+            title={skillsData.title}
+            skill_catrgories={skillsData.skillCatrgories}
           />
         </Row>
         {
-          TIMELINE_DATA &&
+          timelineData &&
           <Row id="experience" className="bg-projects">
-            <TimeLine sectionTitle={TIMELINE_DATA.title} timelineData={TIMELINE_DATA.timeline} />
+            <TimeLine sectionTitle={timelineData?.title} timelineItems={timelineData?.timelineItems} />
           </Row>
         }
         <Row id="reachout" className="bg-reachout full-height align-items-center justify-content-center" >
           <ReachoutForm />
         </Row>
         {FooterData && <Row>
-          <Footer title="Built With" technologies={FooterData?.technologies} />
+          <Footer title={FooterData?.title} technologies={FooterData?.technologies} />
         </Row>}
+        
       </Container>
     </div>
   );

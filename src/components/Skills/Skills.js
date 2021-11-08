@@ -22,19 +22,19 @@ function Skills(props) {
                         {skill_catrgories.map((skillType, i) => (
                             <Carousel.Item key={i} className="mt-3 p-5" style={{ minHeight: "25em" }}>
                                 <Row className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 align-items-center">
-                                    {skillType['skills'].map((skill, i) => (
+                                    {skillType.fields?.skills?.map((skill, i) => (
                                         <Col key={i}>
                                             <div className="d-flex align-items-center">
                                                 <span className="col-3 col-md-5 text-center icon">
-                                                    {GetImage(skill.img, skill.iconColor)}
+                                                    {GetImage(skill?.fields?.img, skill?.fields?.iconColor)}
                                                 </span>
-                                                <ProgressBar className="col-9 col-md-7" now={skill.percent} label={skill.name} variant={skill.img} />
+                                                <ProgressBar className="col-9 col-md-7" now={skill?.fields?.percent} label={skill?.fields?.name} variant={skill?.fields?.img} />
                                             </div>
                                         </Col>
                                     ))}
                                 </Row>
                                 <Carousel.Caption>
-                                    <h3>{skillType.title}</h3>
+                                    <h3>{skillType.fields.name}</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
                         ))}
@@ -48,13 +48,21 @@ function Skills(props) {
 Skills.propTypes = {
     title: PropTypes.string.isRequired,
     skill_catrgories: PropTypes.arrayOf(PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        skills: PropTypes.arrayOf(PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            img: PropTypes.string.isRequired,
-            percent: PropTypes.string.isRequired,
-            iconColor: PropTypes.string.isRequired
-        }))
-    })),
+        fields: PropTypes.shape({
+            title: PropTypes.string,
+            skills: PropTypes.arrayOf(PropTypes.shape({
+                fields: PropTypes.shape({
+                    name: PropTypes.string,
+                    img: PropTypes.string,
+                    percent: PropTypes.string,
+                    iconColor: PropTypes.string
+                })
+            }))
+        })
+    })).isRequired
 };
+Skills.defaultProps = {
+    title: "",
+    skill_catrgories: [{ fields: {} }]
+}
 export default Skills;
