@@ -31,3 +31,38 @@
 .full-height {
     min-height: 100vh;
 }
+.social-links {
+    position: relative;
+    transition: 0.5s;
+    float: right;
+    background-color: #ffffffd1;
+    padding: 10px 10px;
+    border-radius: 2em;
+}
+.social-links ul{
+    margin: 0px;
+    padding: 0px;
+    bottom: 10px;
+} 
+.social-links ul li {
+    text-align: center;
+    margin: 4px 0px;
+    list-style: none;
+}
+.social-links ul li a {
+    font-size: 1.5em;
+}
+.social-links ul li a :hover{
+    opacity: 0.8;
+}
+.social-links ul li a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+}
+.social-share {
+    position: fixed;
+    height: 300px;
+    top: 35%;
+    right: 0px;
+}

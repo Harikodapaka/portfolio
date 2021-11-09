@@ -1,3 +1,6 @@
 footer-styles > img, svg {
     vertical-align: text-bottom !important;
 }
+.font-smaller {
+    font-size: smaller !important;
+}

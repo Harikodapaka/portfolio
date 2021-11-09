@@ -16,7 +16,7 @@ function Footer(props) {
         <>
             <Navbar bg="dark" variant="dark">
                 <Container className="justify-content-center footer-styles">
-                    <Navbar.Brand className="d-flex">
+                    <Navbar.Brand className="d-flex d-none d-md-flex font-smaller">
                         {title}  
                         {technologies.map((item, i) => (
                             <div key={i} className="mx-1">

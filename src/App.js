@@ -1,5 +1,5 @@
 import './App.css';
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Header from './components/Header/Header';
 import PersonalDetails from './components/PersonalDetails/PersonalDetails';
@@ -13,6 +13,13 @@ import ReactGA from 'react-ga';
 import React from 'react';
 import { useEffect, useState } from 'react';
 
+import * as ReactFaIcons from 'react-icons/fa';
+
+
+const Icon = ({ name, color }) => {
+  const TagName = ReactFaIcons[name];
+  return !!TagName ? <TagName style={{ color: color }} /> : <p>{name}</p>;
+}
 
 const TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID;
 
@@ -24,6 +31,7 @@ function App() {
   const [skillsData, setSkillsData] = useState({});
   const [timelineData, setTimelineData] = useState({});
   const [FooterData, setFooterData] = useState({});
+  const [socialIcons, setSocialIcons] = useState([]);
 
   useEffect(() => {
     // initializing Google Analytics
@@ -37,13 +45,14 @@ function App() {
       const skillsResponse = await GET_ENTRIES('skillsData');
       const timlineResponse = await GET_ENTRIES('timelineData');
       const footerResponse = await GET_ENTRIES('footerData');
+      const socialIconsResponse = await GET_ENTRIES('socialIcons');
       setHeaderData(headerResponse[0].fields);
       setPersonalDetails(personalDetailsResponse[0].fields);
       setProjectsData(projectsResponse[0].fields);
       setSkillsData(skillsResponse[0].fields);
       setTimelineData(timlineResponse[0].fields);
       setFooterData(footerResponse[0].fields);
-
+      setSocialIcons(socialIconsResponse);
       setLoading(false);
     }
     fetchServerData();
@@ -92,7 +101,19 @@ function App() {
         {FooterData && <Row>
           <Footer title={FooterData?.title} technologies={FooterData?.technologies} />
         </Row>}
-        
+        <div class="social-share">
+          <div class="social-links">
+            <ul>
+              {socialIcons.map((link, i) => (
+                <li key={i}> 
+                  <a href={link.fields?.href} target="blank">
+                    <Icon name={link.fields?.icon} color={link.fields.iconColor} />
+                  </a>
+                </li>
+              ))} 
+            </ul>
+          </div>
+        </div>
       </Container>
     </div>
   );
