@@ -32,6 +32,7 @@ function App() {
   const [timelineData, setTimelineData] = useState({});
   const [FooterData, setFooterData] = useState({});
   const [socialIcons, setSocialIcons] = useState([]);
+  const [reachOutForm, setReachOutForm] = useState({});
 
   useEffect(() => {
     // initializing Google Analytics
@@ -46,6 +47,7 @@ function App() {
       const timlineResponse = await GET_ENTRIES('timelineData');
       const footerResponse = await GET_ENTRIES('footerData');
       const socialIconsResponse = await GET_ENTRIES('socialIcons');
+      const reachOutFormResponse = await GET_ENTRIES('reachOutForm');
       setHeaderData(headerResponse[0].fields);
       setPersonalDetails(personalDetailsResponse[0].fields);
       setProjectsData(projectsResponse[0].fields);
@@ -53,7 +55,9 @@ function App() {
       setTimelineData(timlineResponse[0].fields);
       setFooterData(footerResponse[0].fields);
       setSocialIcons(socialIconsResponse);
+      setReachOutForm(reachOutFormResponse[0].fields);
       setLoading(false);
+      // console.log(reachOutFormResponse);
     }
     fetchServerData();
   }, []);
@@ -96,21 +100,25 @@ function App() {
           </Row>
         }
         <Row id="reachout" className="bg-reachout full-height align-items-center justify-content-center" >
-          <ReachoutForm />
+          <ReachoutForm
+            title={reachOutForm.title} subtitle={reachOutForm.subtitle}
+            buttonText={reachOutForm.buttonText} successMessage={reachOutForm.successMessage}
+            failureMessage={reachOutForm.failureMessage}
+          />
         </Row>
         {FooterData && <Row>
           <Footer title={FooterData?.title} technologies={FooterData?.technologies} />
         </Row>}
-        <div class="social-share">
-          <div class="social-links">
+        <div className="social-share">
+          <div className="social-links">
             <ul>
               {socialIcons.map((link, i) => (
-                <li key={i}> 
+                <li key={i}>
                   <a href={link.fields?.href} target="blank">
                     <Icon name={link.fields?.icon} color={link.fields.iconColor} />
                   </a>
                 </li>
-              ))} 
+              ))}
             </ul>
           </div>
         </div>
