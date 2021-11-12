@@ -1,4 +1,4 @@
-# Live: [https://www.harikodapaka.com/](https://www.harikodapaka.com/)
+# Live: [https://harikodapaka.com/](https://harikodapaka.com/)
 
 # Getting Started with Create React App
 

@@ -18,7 +18,7 @@ function Skills(props) {
             <Container fluid="md">
                 <h1 className="text-white"> {title} </h1>
                 {skill_catrgories &&
-                    <Carousel className="mt-3 card carousel-fade" variant="dark" controls={false} indicators={true} interval={2000} pause={false}>
+                    <Carousel className="mt-3 card" variant="dark" controls={false} indicators={true} interval={2000} pause={false}>
                         {skill_catrgories.map((skillType, i) => (
                             <Carousel.Item key={i} className="mt-3 p-3" style={{ minHeight: "25em" }}>
                                 <div className="display-6 text-center">{skillType.fields.name}</div>
