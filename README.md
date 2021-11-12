@@ -1,4 +1,4 @@
-# Demo [Link](http://Harikodapaka.github.io/portfolio)
+# Live: [https://www.harikodapaka.com/](https://www.harikodapaka.com/)
 
 # Getting Started with Create React App
 
